@@ -7,3 +7,16 @@
 	--color-white: #eceff1;
 	--font-sans: serenity, sans-serif;
 }
+
+@layer base {
+	button {
+		border: var(--color-green) solid 6px;
+		padding: 0.25rem;
+		font-size: 1.5rem;
+		color: var(--color-green);
+		border-radius: 12px;
+		margin: 0 auto;
+		width: 75vw;
+		background-color: var(--color-white);
+	}
+}
