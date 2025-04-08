@@ -42,6 +42,14 @@ export const Account: React.FC = () => {
 		}
 	}
 
+	async function LogoutUser() {
+		const { error } = await supabase.auth.signOut();
+
+		if (error) {
+			alert('there was an unexpected error. Please try again later');
+		}
+	}
+
 	useEffect(() => {
 		loadData();
 		// console.log(userInfo);
@@ -63,7 +71,9 @@ export const Account: React.FC = () => {
 			</section>
 
 			<section className="text-center w-4/5 mx-auto py-4">
-				<button className="danger">Logout</button>
+				<button className="danger" onClick={LogoutUser}>
+					Logout
+				</button>
 				<button className="danger">Delete Account</button>
 			</section>
 		</div>
