@@ -1,6 +1,25 @@
+import { useState } from 'react';
 import AccIcon from './../assets/account-icon_light.svg';
+import { useOutletContext } from 'react-router';
+import supabase from '../lib/supabaseClient';
+
+type OutletCtx = {
+	userId: number;
+};
 
 export const Account: React.FC = () => {
+	const { userId } = useOutletContext<OutletCtx>();
+	const [userInfo, setUserInfo] = useState({});
+
+	async function loadData() {
+		const { data, error } = await supabase.from('Profiles').select();
+
+		if (error) {
+		}
+		if (data) {
+		}
+	}
+
 	return (
 		<div className="w-full h-full font-extralight text-xl tracking-wide fade">
 			<section className="border-b-4 border-white text-center w-4/5 mx-auto py-4">
