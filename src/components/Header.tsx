@@ -45,7 +45,7 @@ export const Header: React.FC = () => {
 			>
 				<img
 					src={showBackBtn ? BackBtn : AccountIcon}
-					alt="Account"
+					alt={showBackBtn ? 'Back' : 'Account'}
 				/>
 			</Link>
 		</header>

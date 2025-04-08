@@ -20,8 +20,8 @@ export const Footer: React.FC = () => {
 
 	return (
 		<footer
-			className={`h-24 bg-dark-green w-full absolute bottom-0 ${
-				hide ? 'hidden' : 'block'
+			className={`h-24 bg-dark-green w-full absolute  ${
+				hide ? '-bottom-58' : 'bottom-0'
 			}`}
 		>
 			<nav className="w-full flex justify-around items-center h-full">
