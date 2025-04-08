@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import AccIcon from './../assets/account-icon_light.svg';
 import supabase from '../lib/supabaseClient';
+import { useNavigate } from 'react-router';
 
 type AccData = {
 	email: string | undefined;
@@ -18,6 +19,7 @@ export const Account: React.FC = () => {
 		height: 0,
 		weight: 0,
 	});
+	const navigate = useNavigate();
 
 	async function loadData() {
 		const user = await supabase.auth.getUser();
@@ -47,6 +49,8 @@ export const Account: React.FC = () => {
 
 		if (error) {
 			alert('there was an unexpected error. Please try again later');
+		} else {
+			navigate('/');
 		}
 	}
 
