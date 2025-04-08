@@ -76,7 +76,13 @@ export const Account: React.FC = () => {
 			</section>
 
 			<section className="text-center w-4/5 mx-auto py-4">
-				<button className="danger" onClick={logoutUser}>
+				<button
+					className="danger"
+					onClick={() => {
+						// console.log(e);
+						logoutUser();
+					}}
+				>
 					Logout
 				</button>
 				<button className="danger">Delete Account</button>
