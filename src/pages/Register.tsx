@@ -19,7 +19,7 @@ export const Register: React.FC = () => {
 	const [weight, setWeight] = useState(0);
 	const [height, setHeight] = useState(0);
 	const [showMsgModal, setShowMsgModal] = useState(false);
-	const [displayMessage, setDisplayMessage] = useState('Error');
+	const [displayMessage, setDisplayMessage] = useState('');
 
 	const navigate = useNavigate();
 
@@ -93,9 +93,7 @@ export const Register: React.FC = () => {
 	};
 
 	useEffect(() => {
-		setShowMsgModal((show: boolean) => {
-			return (show = !show);
-		});
+		if (displayMessage != '') setShowMsgModal(true);
 	}, [displayMessage]);
 
 	return (

@@ -15,7 +15,7 @@ export default function Login() {
 	);
 	const [inputPass, setInputPass] = useState('');
 
-	const [message, setMessage] = useState('no error');
+	const [message, setMessage] = useState('');
 	const [showModal, setShowModal] = useState(false);
 
 	async function LoginUser() {
@@ -62,9 +62,7 @@ export default function Login() {
 	};
 
 	useEffect(() => {
-		setShowModal((show: boolean) => {
-			return (show = !show);
-		});
+		if (message != '') setShowModal(true);
 	}, [message]);
 
 	return (
