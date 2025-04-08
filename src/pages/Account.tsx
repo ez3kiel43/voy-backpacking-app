@@ -1,37 +1,64 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import AccIcon from './../assets/account-icon_light.svg';
-import { useOutletContext } from 'react-router';
 import supabase from '../lib/supabaseClient';
 
-type OutletCtx = {
-	userId: number;
+type AccData = {
+	email: string | undefined;
+	user_name: string;
+	date_of_birth: string;
+	height: number;
+	weight: number;
 };
 
 export const Account: React.FC = () => {
-	const { userId } = useOutletContext<OutletCtx>();
-	const [userInfo, setUserInfo] = useState({});
+	const [userInfo, setUserInfo] = useState<AccData>({
+		email: '',
+		user_name: '',
+		date_of_birth: '',
+		height: 0,
+		weight: 0,
+	});
 
 	async function loadData() {
-		const { data, error } = await supabase.from('Profiles').select();
+		const user = await supabase.auth.getUser();
+
+		// console.log(user.data.user?.email);
+
+		const { data, error } = await supabase
+			.from('profiles')
+			.select('user_name, date_of_birth, height, weight')
+			.eq('id', user.data.user?.id)
+			.single();
 
 		if (error) {
+			console.log(error.message);
 		}
 		if (data) {
+			// console.log(data);
+			setUserInfo({
+				email: user.data?.user?.email,
+				...data,
+			});
 		}
 	}
+
+	useEffect(() => {
+		loadData();
+		// console.log(userInfo);
+	}, []);
 
 	return (
 		<div className="w-full h-full font-extralight text-xl tracking-wide fade">
 			<section className="border-b-4 border-white text-center w-4/5 mx-auto py-4">
 				<img src={AccIcon} alt="Profile Icon" className="mx-auto" />
-				<p>John Doe</p>
-				<p>validemail@mail.com</p>
+				<p>{userInfo.user_name}</p>
+				<p>{userInfo.email}</p>
 				<button className="inverted">Edit Credentials</button>
 			</section>
 			<section className="border-b-4 border-white text-center w-4/5 mx-auto py-4">
-				<p>Birthday: yyyy-mm-dd</p>
-				<p>Height: 168cm</p>
-				<p>Weight: 92kg</p>
+				<p>Birthday: {userInfo.date_of_birth}</p>
+				<p>Height: {userInfo.height}cm</p>
+				<p>Weight: {userInfo.weight}kg</p>
 				<button className="inverted">Edit Info</button>
 			</section>
 

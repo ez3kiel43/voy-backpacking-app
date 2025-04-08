@@ -20,12 +20,13 @@ export default function Login() {
 
 	async function LoginUser() {
 		const credentials = {
-			email: inputEmail,
-			password: inputPass,
+			email: inputEmail.trim(),
+			password: inputPass.trim(),
 		};
 
 		try {
 			const result = LoginSchema.parse(credentials);
+			// console.log(result);
 
 			const { data, error } = await supabase.auth.signInWithPassword({
 				email: result.email,
@@ -34,10 +35,11 @@ export default function Login() {
 
 			if (error) {
 				setMessage(error.message);
+				return;
 			}
 
 			if (data) {
-				navigate('/dashboard', { state: data.user?.id });
+				navigate('/dashboard');
 			}
 		} catch (e) {
 			if (e instanceof z.ZodError) {
@@ -46,6 +48,11 @@ export default function Login() {
 						.map(err => err.message)
 						.join('\n')} at loginSchema`
 				); // You can show these in UI
+			} else {
+				// console.error(e);
+				setMessage(
+					'An unexpected error occurred. Please try again later.'
+				);
 			}
 		}
 	}
@@ -55,7 +62,9 @@ export default function Login() {
 	};
 
 	useEffect(() => {
-		setShowModal(true);
+		setShowModal((show: boolean) => {
+			return (show = !show);
+		});
 	}, [message]);
 
 	return (
@@ -78,10 +87,10 @@ export default function Login() {
 							name="email"
 							type="email"
 							placeholder="email@mail.com"
-							value={inputEmail}
 							onChange={e => {
 								setInputEmail(e.target.value);
 							}}
+							required
 						/>
 					</label>
 
@@ -95,6 +104,7 @@ export default function Login() {
 							onChange={e => {
 								setInputPass(e.target.value);
 							}}
+							required
 						/>
 					</label>
 					<button

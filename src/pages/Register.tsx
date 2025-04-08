@@ -56,7 +56,7 @@ export const Register: React.FC = () => {
 			if (data?.user) {
 				setDisplayMessage('Account successfully created!');
 				navigate('/login', { state: { userEmail } });
-				console.log(result);
+				// console.log(result);
 				recordPersonalInfo(data.user.id, result);
 			}
 		} catch (e) {
@@ -71,8 +71,8 @@ export const Register: React.FC = () => {
 	}
 
 	async function recordPersonalInfo(UID: string, values: RegisterData) {
-		console.log(UID);
-		const { error } = await supabase.from('Profiles').insert({
+		// console.log(UID);
+		const { error } = await supabase.from('profiles').insert({
 			id: UID,
 			user_name: values.name,
 			date_of_birth: values.birthday,
@@ -81,7 +81,7 @@ export const Register: React.FC = () => {
 		});
 
 		if (error) {
-			console.log(error);
+			// console.log(error);
 			setDisplayMessage(
 				`error: ${error.message} at RecordPersonalInfo`
 			);
