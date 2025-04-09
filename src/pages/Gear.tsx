@@ -1,3 +1,5 @@
+import { GearCard } from '../components/GearCard';
+
 export const Gear: React.FC = () => {
 	return (
 		<>
@@ -15,10 +17,10 @@ export const Gear: React.FC = () => {
 				<option value="3">Apparel</option>
 				<option value="4">Miscellaneous</option>
 			</select>
-			<section className="w-full h-4/5 bg-dark-green mt-4 flex flex-col gap-4 overflow-y-auto px-2">
-				<p className="text-white opacity-65 text-2xl">
-					No Gear Yet...
-				</p>
+			<section className="w-full h-4/5 bg-white mt-4 flex flex-col gap-4 overflow-y-auto justify-start">
+				<GearCard />
+				<GearCard />
+				<GearCard />
 			</section>
 			<button className="inverted block">Add New Gear</button>
 		</>
