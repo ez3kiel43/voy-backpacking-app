@@ -18,7 +18,7 @@ export default function AuthLayout() {
 
 	return (
 		<div
-			className={`h-full transition-all duration-100 bg-linear-to-br ${
+			className={`h-full transition-all duration-100 min-h-svh bg-linear-to-br ${
 				authPg
 					? 'from-[#2B4141] to-[#4c7474]'
 					: 'from-[#eceff1] to-[#2b4141]'
@@ -26,7 +26,7 @@ export default function AuthLayout() {
 		>
 			<header
 				className={` flex flex-col justify-end border-b-4 border-red gap-1.5 py-4 w-11/12 mx-auto text-sm ${
-					authPg ? 'h-1/3 text-white' : 'h-5/12 text-dark-green'
+					authPg ? 'h-1/3 text-white' : 'h-96 text-dark-green'
 				}`}
 			>
 				<img

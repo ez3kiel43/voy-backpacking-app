@@ -34,7 +34,7 @@ export const Header: React.FC = () => {
 	}, [location]);
 
 	return (
-		<header className="h-24 bg-white w-full absolute flex justify-between p-2 items-end z-100">
+		<header className="h-24 bg-white w-full absolute flex justify-between p-2 items-end z-50">
 			<img src={Logo} alt="Voy" className="h-full w-1/4" />
 			<h1 className="text-green font-semibold text-xl text-center w-1/2 tracking-wider">
 				{title}
