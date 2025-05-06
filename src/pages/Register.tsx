@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import Arrow from './../assets/arrrow_right.svg';
 import Compass from './../assets/compass.svg';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { RegisterSchema } from '../lib/registerFormZod';
 import { z } from 'zod';
 import { useNavigate } from 'react-router';
