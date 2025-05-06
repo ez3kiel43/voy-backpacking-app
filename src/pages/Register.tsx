@@ -46,9 +46,7 @@ export const Register: React.FC = () => {
 		} catch (e) {
 			if (e instanceof z.ZodError) {
 				setDisplayMessage(
-					`error: ${e.errors
-						.map(err => err.message)
-						.join('\n')} at registerSchema`
+					` ${e.errors.map(err => err.message).join('\n')} `
 				);
 			}
 		}

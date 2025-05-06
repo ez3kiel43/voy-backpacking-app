@@ -1,5 +1,5 @@
 import Icon from './../assets/icon.svg';
-import Info from './../assets/info.png';
+import Info from './../assets/info.svg';
 
 type gearCardInfo = {
 	name: string;
