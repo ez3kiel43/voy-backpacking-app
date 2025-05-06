@@ -24,10 +24,6 @@
 -    **React Router** for client-side routing
 -    **Tailwind CSS** for styling
 
-## 📸 Screenshots
-
-> _(Insert screenshots here if available)_
-
 ## 🛠️ Getting Started
 
 ### Prerequisites
