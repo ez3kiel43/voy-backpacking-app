@@ -41,7 +41,7 @@
 		align-items: flex-end;
 	}
 
-	form.auth-form input {
+	form input {
 		background-color: var(--color-dark-green);
 		border-bottom: var(--color-white) 4px solid;
 		min-height: 42px;

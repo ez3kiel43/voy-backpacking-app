@@ -2,8 +2,7 @@ import { Link } from 'react-router';
 import Arrow from './../assets/arrrow_right.svg';
 import Compass from './../assets/compass.svg';
 import { useEffect, useState } from 'react';
-import supabase from '../lib/supabaseClient';
-import { RegisterSchema, RegisterData } from '../lib/registerFormZod';
+import { RegisterSchema } from '../lib/registerFormZod';
 import { z } from 'zod';
 import { useNavigate } from 'react-router';
 import { MessageModal } from '../components/displayMessage';
@@ -42,49 +41,16 @@ export const Register: React.FC = () => {
 		};
 		try {
 			const result = RegisterSchema.parse(info); // throws if invalid
-			const { data, error } = await supabase.auth.signUp({
-				email: result.email,
-				password: result.password,
-			});
-
-			if (error) {
-				setDisplayMessage(
-					`error: ${error.message} at registerNewUser`
-				);
-			}
-
-			if (data?.user) {
-				setDisplayMessage('Account successfully created!');
-				navigate('/login', { state: { userEmail } });
-				// console.log(result);
-				recordPersonalInfo(data.user.id, result);
-			}
+			navigate('/login');
+			return result;
 		} catch (e) {
 			if (e instanceof z.ZodError) {
 				setDisplayMessage(
 					`error: ${e.errors
 						.map(err => err.message)
 						.join('\n')} at registerSchema`
-				); // You can show these in UI
+				);
 			}
-		}
-	}
-
-	async function recordPersonalInfo(UID: string, values: RegisterData) {
-		// console.log(UID);
-		const { error } = await supabase.from('profiles').insert({
-			id: UID,
-			user_name: values.name,
-			date_of_birth: values.birthday,
-			height: values.height,
-			weight: values.weight,
-		});
-
-		if (error) {
-			// console.log(error);
-			setDisplayMessage(
-				`error: ${error.message} at RecordPersonalInfo`
-			);
 		}
 	}
 
@@ -204,7 +170,7 @@ export const Register: React.FC = () => {
 								}}
 							/>
 						</label>
-						<div className="w-full flex justify-between items-center">
+						<div className="w-full flex justify-between items-end">
 							<label htmlFor="height" className="w-2/5">
 								Height:
 								<input
@@ -225,12 +191,22 @@ export const Register: React.FC = () => {
 							>
 								Unit:
 								<select name="unitH" id="unitH">
-									<option value="cm">cm</option>
-									<option value="in">inches</option>
+									<option
+										value="cm"
+										className="text-dark-green"
+									>
+										cm
+									</option>
+									<option
+										value="in"
+										className="text-dark-green"
+									>
+										inches
+									</option>
 								</select>
 							</label>
 						</div>
-						<div className="w-full flex justify-between items-center">
+						<div className="w-full flex justify-between items-end">
 							<label htmlFor="weight" className="w-2/5">
 								Weight:
 								<input
@@ -251,8 +227,18 @@ export const Register: React.FC = () => {
 							>
 								Unit:
 								<select name="unitW" id="unitW">
-									<option value="kg">kg</option>
-									<option value="lbs">lbs</option>
+									<option
+										value="kg"
+										className="text-dark-green"
+									>
+										kg
+									</option>
+									<option
+										value="lbs"
+										className="text-dark-green"
+									>
+										lbs
+									</option>
 								</select>
 							</label>
 						</div>

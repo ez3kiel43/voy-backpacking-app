@@ -1,0 +1,128 @@
+{
+	"camping_gear": {
+		"shelter": [
+			{
+				"name": "Ultralight Tent",
+				"stars": 4,
+				"weight": 2.1,
+				"size": "6x6x18"
+			},
+			{
+				"name": "Tarp Shelter",
+				"stars": 4,
+				"weight": 1.2,
+				"size": "8x4x12"
+			},
+			{
+				"name": "Bivy Sack",
+				"stars": 3,
+				"weight": 1.0,
+				"size": "7x5x14"
+			},
+			{
+				"name": "Tent Footprint",
+				"stars": 4,
+				"weight": 0.6,
+				"size": "8x2x10"
+			}
+		],
+		"sleep": [
+			{
+				"name": "Down Sleeping Bag",
+				"stars": 4,
+				"weight": 2.3,
+				"size": "9x9x15"
+			},
+			{
+				"name": "Inflatable Sleeping Pad",
+				"stars": 4,
+				"weight": 1.1,
+				"size": "4x4x10"
+			},
+			{
+				"name": "Camping Pillow",
+				"stars": 4,
+				"weight": 0.5,
+				"size": "6x4x6"
+			}
+		],
+		"kitchen": [
+			{
+				"name": "Backpacking Stove",
+				"stars": 3,
+				"weight": 0.7,
+				"size": "3x3x4"
+			},
+			{
+				"name": "Titanium Cook Pot",
+				"stars": 4,
+				"weight": 0.9,
+				"size": "5x5x5"
+			},
+			{
+				"name": "Collapsible Bowl",
+				"stars": 4,
+				"weight": 0.3,
+				"size": "6x2x6"
+			},
+			{
+				"name": "Spoon-Fork Combo",
+				"stars": 3,
+				"weight": 0.1,
+				"size": "1x1x7"
+			}
+		],
+		"apparel": [
+			{
+				"name": "Waterproof Jacket",
+				"stars": 4,
+				"weight": 1.2,
+				"size": "12x8x4"
+			},
+			{
+				"name": "Thermal Base Layer",
+				"stars": 3,
+				"weight": 0.9,
+				"size": "10x6x3"
+			},
+			{
+				"name": "Wool Socks",
+				"stars": 4,
+				"weight": 0.2,
+				"size": "3x1x4"
+			},
+			{
+				"name": "Insulated Gloves",
+				"stars": 4,
+				"weight": 0.4,
+				"size": "5x3x8"
+			}
+		],
+		"misc": [
+			{
+				"name": "Headlamp",
+				"stars": 4,
+				"weight": 0.3,
+				"size": "2x2x3"
+			},
+			{
+				"name": "First Aid Kit",
+				"stars": 3,
+				"weight": 0.9,
+				"size": "6x3x4"
+			},
+			{
+				"name": "Multi-tool",
+				"stars": 2,
+				"weight": 0.5,
+				"size": "4x1x2"
+			},
+			{
+				"name": "Paracord",
+				"stars": 5,
+				"weight": 0.4,
+				"size": "3x3x6"
+			}
+		]
+	}
+}

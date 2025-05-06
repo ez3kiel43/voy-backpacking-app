@@ -1,7 +1,9 @@
+import PackImg from './../assets/packPg.png';
+
 export const Packs: React.FC = () => {
 	return (
 		<>
-			<h1>Packs</h1>
+			<img src={PackImg} alt="a static layout" />
 		</>
 	);
 };
