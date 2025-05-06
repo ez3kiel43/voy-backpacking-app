@@ -49,6 +49,7 @@ export const NewGearModal: React.FC<{ onClose: () => void }> = ({
 							Weight:
 							<input
 								type="number"
+								min={0}
 								className="w-full border rounded px-2 py-1"
 							/>
 						</label>
@@ -92,17 +93,29 @@ export const NewGearModal: React.FC<{ onClose: () => void }> = ({
 					<div className="flex w-full gap-2 items-center mb-4">
 						<label className="mb-1">
 							Width:{' '}
-							<input type="number" className="w-16" />
+							<input
+								min={0}
+								type="number"
+								className="w-16"
+							/>
 						</label>
 
 						<label className="mb-1">
 							Height:{' '}
-							<input type="number" className="w-16" />
+							<input
+								min={0}
+								type="number"
+								className="w-16"
+							/>
 						</label>
 
 						<label className="mb-1">
 							Length:
-							<input type="number" className="w-16" />
+							<input
+								min={0}
+								type="number"
+								className="w-16"
+							/>
 						</label>
 
 						<select className="w-full border rounded px-1 py-1 h-1/2">
