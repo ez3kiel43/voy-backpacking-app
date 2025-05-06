@@ -20,7 +20,7 @@ export const Footer: React.FC = () => {
 
 	return (
 		<footer
-			className={`h-24 bg-dark-green w-full absolute  ${
+			className={`h-24 bg-dark-green w-full fixed p-2 ${
 				hide ? '-bottom-58' : 'bottom-0'
 			}`}
 		>
