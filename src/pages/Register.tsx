@@ -46,8 +46,9 @@ export const Register: React.FC = () => {
 		} catch (e) {
 			if (e instanceof z.ZodError) {
 				setDisplayMessage(
-					` ${e.errors.map(err => err.message).join('\n')} `
+					` ${e.errors.map(err => err.message).join(';')} `
 				);
+				setShowMsgModal(true);
 			}
 		}
 	}
@@ -56,30 +57,29 @@ export const Register: React.FC = () => {
 		setShowMsgModal(false);
 	};
 
-	useEffect(() => {
-		if (displayMessage != '') setShowMsgModal(true);
-	}, [displayMessage]);
-
 	return (
 		<>
 			<ModalOverlay show={showMsgModal} />
-			<main className="h-full">
+			<main>
 				<MessageModal
 					message={displayMessage}
 					show={showMsgModal}
 					closeFn={closeModal}
 				/>
 
-				<form className="auth-form relative mt-8" method="post">
+				<form className="auth-form relative mt-2">
 					<div
-						className={`absolute flex flex-col w-full gap-4 items-end ${
+						className={`absolute flex flex-col w-full gap-2 items-start pb-24 transition-all duration-300 ${
 							form1 ? 'right-0' : 'right-100'
 						}`}
 					>
 						<h2 className="text-white text-xl text-center font-thin self-center">
 							Account Credentials
 						</h2>
-						<label htmlFor="register-email">
+						<label
+							htmlFor="register-email"
+							className="w-full"
+						>
 							Email:
 							<input
 								id="register-email"
@@ -92,7 +92,10 @@ export const Register: React.FC = () => {
 							/>
 						</label>
 
-						<label htmlFor="register-password">
+						<label
+							htmlFor="register-password"
+							className="w-full"
+						>
 							Password:
 							<input
 								id="register-password"
@@ -104,7 +107,10 @@ export const Register: React.FC = () => {
 								}}
 							/>
 						</label>
-						<label htmlFor="register-confirm-password">
+						<label
+							htmlFor="register-confirm-password"
+							className="w-full"
+						>
 							Confirm Password:
 							<input
 								id="register-confirm-password"
@@ -136,14 +142,14 @@ export const Register: React.FC = () => {
 						</p>
 					</div>
 					<div
-						className={`absolute flex flex-col w-full gap-4 items-end ${
+						className={`absolute flex flex-col w-full gap-4 items-start transition-all duration-300 ${
 							form1 ? 'left-100' : 'left-0'
 						}`}
 					>
 						<h2 className="text-white text-xl text-center font-thin self-center">
 							Personal Info
 						</h2>
-						<label htmlFor="user-name">
+						<label htmlFor="user-name" className="w-full">
 							Name:
 							<input
 								id="user-name"
@@ -155,7 +161,7 @@ export const Register: React.FC = () => {
 								}}
 							/>
 						</label>
-						<label htmlFor="birthday">
+						<label htmlFor="birthday" className="w-full">
 							Date of Birth:
 							<input
 								id="birthday"
@@ -175,6 +181,7 @@ export const Register: React.FC = () => {
 									type="number"
 									name="height"
 									id="height"
+									min={0}
 									className="w-full"
 									onChange={e => {
 										setHeight(
@@ -212,6 +219,7 @@ export const Register: React.FC = () => {
 									name="weight"
 									id="weight"
 									className="w-full"
+									min={0}
 									onChange={e => {
 										setWeight(
 											Number(e.target.value)

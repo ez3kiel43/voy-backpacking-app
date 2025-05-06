@@ -10,8 +10,8 @@ export default function Login() {
 				<h1 className="text-white text-xl text-center font-thin">
 					Account Credentials
 				</h1>
-				<form className="auth-form" method="post">
-					<label htmlFor="login-email">
+				<form className="auth-form">
+					<label htmlFor="login-email" className="w-full">
 						Email:
 						<input
 							id="login-email"
@@ -22,7 +22,7 @@ export default function Login() {
 						/>
 					</label>
 
-					<label htmlFor="login-password">
+					<label htmlFor="login-password" className="w-full">
 						Password:
 						<input
 							id="login-password"
