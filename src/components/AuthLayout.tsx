@@ -40,7 +40,7 @@ export default function AuthLayout() {
 			</header>
 			<Outlet />
 			<footer className="absolute bottom-0 text-white text-lg text-center w-full py-1 font-sans">
-				<p>Copyright 2025 © Azure Bonsai DIgital Design</p>
+				<p>Copyright 2025 © Ezra Evans Web Design</p>
 			</footer>
 		</div>
 	);
