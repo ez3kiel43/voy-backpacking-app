@@ -34,7 +34,7 @@
 ### Installation
 
 ```bash
-git clone https://github.com/yourusername/voy-backpacking.git
+git clone https://github.com/ez3kiel43/voy-backpacking.git
 cd voy-backpacking
 npm install
 npm run dev
