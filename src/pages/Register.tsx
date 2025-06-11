@@ -60,7 +60,7 @@ export const Register: React.FC = () => {
 	return (
 		<>
 			<ModalOverlay show={showMsgModal} />
-			<main className="overflow-y-auto">
+			<main className="overflow-y-auto h-full">
 				<MessageModal
 					message={displayMessage}
 					show={showMsgModal}
