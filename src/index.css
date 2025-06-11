@@ -23,6 +23,11 @@
 		width: 100%;
 	}
 
+	main {
+		width: 100vw;
+		height: 100vh;
+	}
+
 	header,
 	footer {
 		transition: all 700ms allow-discrete;
